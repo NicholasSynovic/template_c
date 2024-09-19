@@ -1,6 +1,15 @@
 default_language_version:
     python: python3.10
+
 repos:
+  - repo: local
+    hooks:
+    -   id: clang-format
+        name: Run Clang Format
+        language: system
+        entry: clang-format -i --style=LLVM
+        files: \.(h|hpp|cpp|c)$
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
